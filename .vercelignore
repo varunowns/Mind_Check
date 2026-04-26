@@ -1,0 +1,6 @@
+.edge-profile
+*.log
+*.png
+coverage
+apps/client/dist
+apps/server/data

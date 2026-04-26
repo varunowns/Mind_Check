@@ -1,0 +1,8 @@
+node_modules
+dist
+coverage
+apps/server/data
+*.log
+.edge-profile
+
+.vercel
