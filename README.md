@@ -26,7 +26,7 @@ MindCheck helps you understand and manage stress through daily check-ins, person
 ### Frontend
 - **React 19** with TypeScript
 - **Vite** for fast development and optimized builds
-- **Tailwind CSS** for styling
+- **Tailwind CSS** + **Custom CSS** for glassmorphism design system
 - **Framer Motion** for smooth animations
 - **React Router** for navigation
 - **Recharts** for data visualization
@@ -189,6 +189,63 @@ The app suggests from a curated library of 15 relief strategies across 13 catego
 - **Planning** — Meeting load management
 
 Suggestions are personalized based on stress patterns, upcoming events, sleep debt, and burnout status.
+
+## Design System & Components
+
+### Glassmorphism Design
+
+MindCheck uses a modern **glassmorphism design system** with:
+
+- **Glass effect**: Backdrop blur, semi-transparent backgrounds, and layered shadows create depth
+- **Theme variables**: Light and dark modes with CSS custom properties for consistent colors across the app
+- **Smooth animations**: Framer Motion for entrance, hover, and interactive states
+- **Accessible spacing**: Standardized gaps (space-1 through space-8) and border radii
+
+### Shared Component Library
+
+Core UI components live in `apps/client/src/components/` and are reused across all pages:
+
+**Glass Components** (glassmorphism-styled):
+- `GlassCard` — Base glass effect container with variants (default, accent, elevated, subtle)
+- `GlassMetric` — Stat card with label, value, icon, and trend indicator
+- `GlassStat` — Animated progress stat with bar fill and percentage
+- `GlassButton` — Button with glass, primary, secondary, or ghost variants
+- `GlassFormSection` — Form container with title and description
+
+**UI Components**:
+- `StressRing` — Circular progress visualization of stress score (0-100)
+- `BreathingCircle` — Animated box breathing guide (inhale, hold, exhale)
+- `CheckinProgressBar` — Step progress indicator for multi-step flows
+- `MoodPicker` — Emoji-based mood selection grid
+- `StressorChips` — Multi-select chip buttons for stressor categories
+- `JournalCard` — Card for journal entry preview with date and tone
+- `BadgeCard` — Achievement badge with lock state
+- `TipCard` — Wisdom/guidance card with optional icon
+- `ThemeToggle` — Light/dark mode switcher
+
+**Other Components**:
+- `MetricCard` — Simple metric display (used on dashboard)
+- `Layout` — App shell with header, nav, and footer
+- `ReliefSuggestionCard` — Relief suggestion with icon, description, steps, and CTA
+- `StaggerItem` — Wrapper for staggered entrance animations
+
+### Theming
+
+Light and dark themes are defined via CSS custom properties in `apps/client/src/styles.css`:
+
+```css
+--bg-base        /* Page background */
+--bg-surface     /* Surface layer */
+--bg-elevated    /* Elevated component */
+--accent-primary /* Primary color (sage green) */
+--accent-secondary /* Secondary color (warm tan) */
+--text-primary   /* Body text */
+--text-muted     /* Muted/secondary text */
+--glass-bg       /* Glass effect background */
+--glass-border   /* Glass effect border */
+```
+
+Theme is stored in `localStorage` and applied via `data-theme` attribute on `<html>`. The `useTheme()` hook manages toggling.
 
 ## Design Philosophy
 
