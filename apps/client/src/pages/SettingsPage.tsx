@@ -266,7 +266,7 @@ export const SettingsPage = () => {
                   <input
                     type="tel"
                     value={profileForm.phoneNumber}
-                    onChange={(event) => setProfileForm((current) => current ? { ...current, phoneNumber: event.target.value } : current)}
+                    onChange={(event) => setProfileForm((current: UserProfileUpdate | null) => current ? { ...current, phoneNumber: event.target.value } : current)}
                     className="input-field mt-3"
                     placeholder="+91 98765 43210"
                   />
@@ -276,7 +276,7 @@ export const SettingsPage = () => {
                   <input
                     type="text"
                     value={profileForm.region}
-                    onChange={(event) => setProfileForm((current) => current ? { ...current, region: event.target.value } : current)}
+                    onChange={(event) => setProfileForm((current: UserProfileUpdate | null) => current ? { ...current, region: event.target.value } : current)}
                     className="input-field mt-3"
                     placeholder="Region or state"
                   />
@@ -286,7 +286,7 @@ export const SettingsPage = () => {
                   <input
                     type="text"
                     value={profileForm.city}
-                    onChange={(event) => setProfileForm((current) => current ? { ...current, city: event.target.value } : current)}
+                    onChange={(event) => setProfileForm((current: UserProfileUpdate | null) => current ? { ...current, city: event.target.value } : current)}
                     className="input-field mt-3"
                     placeholder="City, town, or place you live"
                   />
@@ -323,7 +323,7 @@ export const SettingsPage = () => {
                   <button
                     key={option.value}
                     type="button"
-                    onClick={() => setSettingsForm((current) => ({ ...current, checkinMode: option.value as UserSettingsUpdate["checkinMode"] }))}
+                    onClick={() => setSettingsForm((current: UserSettingsUpdate) => ({ ...current, checkinMode: option.value as UserSettingsUpdate["checkinMode"] }))}
                     className="preference-card"
                     data-active={settingsForm.checkinMode === option.value}
                   >
@@ -345,7 +345,7 @@ export const SettingsPage = () => {
                     max="12"
                     step="0.5"
                     value={settingsForm.recommendedSleepHours}
-                    onChange={(event) => setSettingsForm((current) => ({ ...current, recommendedSleepHours: Number(event.target.value) }))}
+                    onChange={(event) => setSettingsForm((current: UserSettingsUpdate) => ({ ...current, recommendedSleepHours: Number(event.target.value) }))}
                     className="range-input"
                   />
                   <span>{settingsForm.recommendedSleepHours}h</span>
@@ -359,7 +359,7 @@ export const SettingsPage = () => {
                 <input
                   type="time"
                   value={settingsForm.lateThreshold}
-                  onChange={(event) => setSettingsForm((current) => ({ ...current, lateThreshold: event.target.value || guestSettingsDefaults.lateThreshold }))}
+                  onChange={(event) => setSettingsForm((current: UserSettingsUpdate) => ({ ...current, lateThreshold: event.target.value || guestSettingsDefaults.lateThreshold }))}
                   className="input-field mt-3"
                 />
               </label>
