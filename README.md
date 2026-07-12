@@ -322,3 +322,5 @@ For issues, questions, or feedback, open an issue on GitHub or reach out directl
 ---
 
 Built with care for people managing stress. Pebble recognizes that some days are hard, some weeks are heavy, and that's okay. 💙
+
+**Author:** Varun Kumar Yadav
