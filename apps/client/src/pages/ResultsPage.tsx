@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import type { CheckInRecord, CheckInResultContext, ReliefSuggestion } from "@mindcheck/shared";
 import { EmptyState, SparkleIcon, StaggerItem, StressRing, TipCard } from "../components/mindcheck-ui";
+import { ReliefSuggestionCard } from "../components/ReliefSuggestionCard";
 import { getEmpathyMessage, getScoreTone, getScoreToneLabel } from "../lib/design-system";
 import { formatTimeLabel } from "../lib/date";
 
@@ -9,6 +10,16 @@ type SessionResult = {
   suggestions: ReliefSuggestion[];
   prompt: string;
   context: CheckInResultContext;
+};
+
+const handleSuggestionAction = (suggestion: ReliefSuggestion) => {
+  if (suggestion.href) {
+    window.open(suggestion.href, "_blank");
+  } else if (suggestion.category === "breathing") {
+    window.location.href = "/breathe";
+  } else if (suggestion.category === "journal") {
+    window.location.href = "/journal";
+  }
 };
 
 export const ResultsPage = () => {
@@ -68,32 +79,18 @@ export const ResultsPage = () => {
         </StaggerItem>
       ) : null}
 
-      <section className="insight-grid">
-        {result.suggestions.map((suggestion, index) => (
-          <StaggerItem key={suggestion.id} className="surface-card surface-section" delay={600 + index * 150}>
-            <p className="eyebrow eyebrow--soft">{suggestion.category}</p>
-            <h2 className="section-title mt-3">{suggestion.title}</h2>
-            <p className="body-copy mt-3">{suggestion.description}</p>
-            {suggestion.steps?.length ? (
-              <div className="mt-4 grid gap-2">
-                {suggestion.steps.map((step) => (
-                  <div key={step} className="surface-muted p-3 text-sm">{step}</div>
-                ))}
-              </div>
-            ) : null}
-            <div className="mt-5">
-              {suggestion.href ? (
-                <a href={suggestion.href} target="_blank" rel="noreferrer" className="button-secondary">{suggestion.actionLabel}</a>
-              ) : suggestion.category === "breathing" ? (
-                <Link to="/breathe" className="button-primary">{suggestion.actionLabel}</Link>
-              ) : suggestion.category === "journal" ? (
-                <Link to="/journal" className="button-primary">{suggestion.actionLabel}</Link>
-              ) : (
-                <span className="score-chip" data-tone={tone}>{suggestion.actionLabel}</span>
-              )}
-            </div>
-          </StaggerItem>
-        ))}
+      <section className="relief-grid">
+        <h2 className="relief-grid__title">Relief suggestions tailored for you</h2>
+        <div className="relief-grid__content">
+          {result.suggestions.map((suggestion, index) => (
+            <ReliefSuggestionCard
+              key={suggestion.id}
+              suggestion={suggestion}
+              onAction={handleSuggestionAction}
+              index={index}
+            />
+          ))}
+        </div>
       </section>
 
       <StaggerItem className="surface-card surface-section" delay={1200}>

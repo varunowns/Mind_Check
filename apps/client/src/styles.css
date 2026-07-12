@@ -514,6 +514,32 @@ html[data-theme="dark"] .relief-card {
 html[data-theme="dark"] .form-section {
   background: color-mix(in srgb, var(--bg-surface) 94%, white 6%);
 }
+
+/* Relief Grid Layout */
+.relief-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.relief-grid__title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.relief-grid__content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .relief-grid__content {
+    grid-template-columns: 1fr;
+  }
+}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
