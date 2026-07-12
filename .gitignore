@@ -1,8 +1,43 @@
+# Dependencies
 node_modules
+package-lock.json
+yarn.lock
+
+# Build outputs
 dist
 coverage
-apps/server/data
-*.log
-.edge-profile
+public
+*.tsbuildinfo
 
+# Environment
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+.edge-profile
+Thumbs.db
+
+# Logs & temp files
+*.log
+logs
+tmp
 .vercel
+
+# Database (local dev only)
+apps/server/data
+*.db
+*.db-wal
+*.db-shm
+
+# Runtime
+.next
+dist

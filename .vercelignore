@@ -1,6 +1,28 @@
-.edge-profile
-*.log
-*.png
-coverage
+# Build outputs (client builds to /public at root)
 apps/client/dist
+apps/server/dist
+
+# Database (local dev only)
 apps/server/data
+*.db
+*.db-wal
+*.db-shm
+
+# Logs and temp files
+*.log
+logs
+tmp
+
+# OS and IDE
+.edge-profile
+.DS_Store
+.vscode
+.idea
+Thumbs.db
+
+# Images (screenshots for docs, not needed in build)
+*.png
+*.jpg
+
+# Test coverage
+coverage
