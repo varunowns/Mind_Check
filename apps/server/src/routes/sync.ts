@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { syncSchema } from "@mindcheck/shared";
+import { syncSchema } from "@pebble/shared";
 import { requireAuth, type AuthenticatedRequest } from "../middleware/auth.js";
 import { syncRepository } from "../services/repositories.js";
 

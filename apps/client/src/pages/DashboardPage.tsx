@@ -6,7 +6,7 @@ import {
   type CheckInRecord,
   type DashboardSummary,
   type JournalEntry
-} from "@mindcheck/shared";
+} from "@pebble/shared";
 import {
   EmptyState,
   FlameIcon,

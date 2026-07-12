@@ -1,19 +1,19 @@
-import type { CheckInInput, JournalEntry, LocalSyncPayload, PulseInput, UpcomingEvent, User } from "@mindcheck/shared";
+import type { CheckInInput, JournalEntry, LocalSyncPayload, PulseInput, UpcomingEvent, User } from "@pebble/shared";
 
 import type { BreathingSession } from "./breathing";
 
-const guestCheckInsKey = "mindcheck.guest.checkins";
-const guestJournalsKey = "mindcheck.guest.journals";
-const guestPulsesKey = "mindcheck.guest.pulses";
-const guestEventsKey = "mindcheck.guest.events";
-const guestSettingsKey = "mindcheck.guest.settings";
-const breathingSessionsKey = "mindcheck.breathing.sessions";
-const draftKey = "mindcheck.draft.checkin";
-const tokenKey = "mindcheck.auth.token";
-const themeKey = "mindcheck-theme";
-const legacyThemeKey = "mindcheck.theme";
-const reminderKey = "mindcheck.reminder";
-const shieldToastKey = "mindcheck.shield-toast";
+const guestCheckInsKey = "pebble.guest.checkins";
+const guestJournalsKey = "pebble.guest.journals";
+const guestPulsesKey = "pebble.guest.pulses";
+const guestEventsKey = "pebble.guest.events";
+const guestSettingsKey = "pebble.guest.settings";
+const breathingSessionsKey = "pebble.breathing.sessions";
+const draftKey = "pebble.draft.checkin";
+const tokenKey = "pebble.auth.token";
+const themeKey = "pebble-theme";
+const legacyThemeKey = "pebble.theme";
+const reminderKey = "pebble.reminder";
+const shieldToastKey = "pebble.shield-toast";
 
 export const guestSettingsDefaults: Pick<User, "checkinMode" | "recommendedSleepHours" | "lateThreshold"> = {
   checkinMode: "once",

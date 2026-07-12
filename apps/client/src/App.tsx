@@ -26,12 +26,12 @@ export const App = () => {
     if (isEvening() && !alreadySent && !hasCheckIn) {
       setReminderVisible(true);
       if ("Notification" in window && Notification.permission === "granted") {
-        new Notification("MindCheck", { body: "A two-minute check-in could help tonight feel lighter." });
+        new Notification("Pebble", { body: "A two-minute check-in could help tonight feel lighter." });
         storage.markReminderSent(date);
       } else if ("Notification" in window && Notification.permission === "default") {
         Notification.requestPermission().then((permission) => {
           if (permission === "granted") {
-            new Notification("MindCheck", { body: "A two-minute check-in could help tonight feel lighter." });
+            new Notification("Pebble", { body: "A two-minute check-in could help tonight feel lighter." });
           }
           storage.markReminderSent(date);
         });

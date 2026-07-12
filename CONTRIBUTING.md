@@ -1,11 +1,11 @@
-# Contributing to MindCheck
+# Contributing to Pebble
 
-Thank you for considering contributing to MindCheck. Your help makes this project better for everyone managing stress.
+Thank you for considering contributing to Pebble. Your help makes this project better for everyone managing stress.
 
 ## Getting Started
 
 1. **Fork** the repository
-2. **Clone** your fork: `git clone https://github.com/your-username/mindcheck.git`
+2. **Clone** your fork: `git clone https://github.com/your-username/pebble.git`
 3. **Create a branch** for your feature: `git checkout -b feature/your-feature-name`
 4. **Install dependencies**: `npm install`
 5. **Start development**: `npm run dev`

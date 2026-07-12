@@ -1,5 +1,5 @@
-import type { CheckInRecord } from "@mindcheck/shared";
-import { getStressBand } from "@mindcheck/shared";
+import type { CheckInRecord } from "@pebble/shared";
+import { getStressBand } from "@pebble/shared";
 
 export type ScoreTone = "low" | "mid" | "high";
 

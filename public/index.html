@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script>
       (() => {
-        const storedTheme = localStorage.getItem("mindcheck-theme") ?? localStorage.getItem("mindcheck.theme");
+        const storedTheme = localStorage.getItem("pebble-theme") ?? localStorage.getItem("pebble.theme");
         const nextTheme = storedTheme === "dark" || storedTheme === "light"
           ? storedTheme
           : window.matchMedia("(prefers-color-scheme: dark)").matches
@@ -15,8 +15,8 @@
         document.documentElement.style.colorScheme = nextTheme;
       })();
     </script>
-    <title>MindCheck</title>
-    <script type="module" crossorigin src="/assets/index-DkRqg7S8.js"></script>
+    <title>Pebble</title>
+    <script type="module" crossorigin src="/assets/index-BQpLgnHl.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-Qbog4_WR.css">
   </head>
   <body>

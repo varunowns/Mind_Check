@@ -19,7 +19,7 @@ import {
   type User,
   type UserProfileUpdate,
   type UserSettingsUpdate
-} from "@mindcheck/shared";
+} from "@pebble/shared";
 import { database } from "../db/client.js";
 import { getWordCount, toDateKey } from "../utils/date.js";
 

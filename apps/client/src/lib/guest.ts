@@ -13,7 +13,7 @@ import {
   type PulseInput,
   type PulseRecord,
   type UpcomingEvent
-} from "@mindcheck/shared";
+} from "@pebble/shared";
 import { storage } from "./storage";
 
 const mapGuestCheckIn = (checkIn: CheckInInput): CheckInRecord => ({

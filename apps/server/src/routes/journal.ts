@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { journalSchema } from "@mindcheck/shared";
+import { journalSchema } from "@pebble/shared";
 import { requireAuth, type AuthenticatedRequest } from "../middleware/auth.js";
 import { journalRepository } from "../services/repositories.js";
 

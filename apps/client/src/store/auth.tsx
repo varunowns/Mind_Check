@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import type { PropsWithChildren } from "react";
-import type { User } from "@mindcheck/shared";
+import type { User } from "@pebble/shared";
 import { api } from "../lib/api";
 import { storage } from "../lib/storage";
 

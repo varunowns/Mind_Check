@@ -1,5 +1,5 @@
 {
-  "name": "@mindcheck/client",
+  "name": "@pebble/client",
   "version": "1.0.0",
   "private": true,
   "type": "module",
@@ -9,7 +9,7 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@mindcheck/shared": "1.0.0",
+    "@pebble/shared": "1.0.0",
     "framer-motion": "^12.5.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

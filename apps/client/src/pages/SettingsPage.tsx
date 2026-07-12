@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import type { DashboardSummary, UserProfileUpdate, UserSettingsUpdate } from "@mindcheck/shared";
+import type { DashboardSummary, UserProfileUpdate, UserSettingsUpdate } from "@pebble/shared";
 import { BadgeCard, FlameIcon, MetricCard, StaggerItem, TipCard } from "../components/mindcheck-ui";
 import { FormField, FormSection } from "../components/FormComponents";
 import { api } from "../lib/api";

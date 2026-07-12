@@ -10,8 +10,8 @@ import {
   XAxis,
   YAxis
 } from "recharts";
-import type { CheckInRecord, DashboardSummary } from "@mindcheck/shared";
-import { calculateInsights } from "@mindcheck/shared";
+import type { CheckInRecord, DashboardSummary } from "@pebble/shared";
+import { calculateInsights } from "@pebble/shared";
 import { EmptyState, MetricCard, StaggerItem, StressRing, TipCard } from "../components/mindcheck-ui";
 import { api } from "../lib/api";
 import { getHeatmapTone, getLatestRecord } from "../lib/design-system";

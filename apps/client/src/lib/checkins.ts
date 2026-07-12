@@ -1,4 +1,4 @@
-import type { CheckInInput } from "@mindcheck/shared";
+import type { CheckInInput } from "@pebble/shared";
 import { toLocalTimestamp, todayKey } from "./date";
 
 export const createDefaultCheckIn = (value = new Date()): CheckInInput => ({

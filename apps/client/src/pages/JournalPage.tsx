@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import type { CheckInRecord, JournalEntry } from "@mindcheck/shared";
+import type { CheckInRecord, JournalEntry } from "@pebble/shared";
 import { EmptyState, JournalCard, SparkleIcon, StaggerItem, TipCard } from "../components/mindcheck-ui";
 import { api } from "../lib/api";
 import { prettyDate, todayKey } from "../lib/date";
@@ -12,7 +12,7 @@ import { useAuth } from "../store/auth";
 const weeklyPrompt = "What was the hardest moment this week, and what helped?";
 
 const getLatestPrompt = () => {
-  const raw = sessionStorage.getItem("mindcheck.latest-result");
+  const raw = sessionStorage.getItem("pebble.latest-result");
   if (!raw) return "What feels most important to name tonight?";
 
   try {

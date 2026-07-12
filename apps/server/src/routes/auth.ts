@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { loginSchema, profileUpdateSchema, signupSchema, userSettingsSchema } from "@mindcheck/shared";
+import { loginSchema, profileUpdateSchema, signupSchema, userSettingsSchema } from "@pebble/shared";
 import { comparePassword, hashPassword, signToken } from "../utils/auth.js";
 import { requireAuth, type AuthenticatedRequest } from "../middleware/auth.js";
 import { userRepository } from "../services/repositories.js";

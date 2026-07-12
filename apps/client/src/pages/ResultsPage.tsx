@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import type { CheckInRecord, CheckInResultContext, ReliefSuggestion } from "@mindcheck/shared";
+import type { CheckInRecord, CheckInResultContext, ReliefSuggestion } from "@pebble/shared";
 import { EmptyState, SparkleIcon, StaggerItem, StressRing, TipCard } from "../components/mindcheck-ui";
 import { ReliefSuggestionCard } from "../components/ReliefSuggestionCard";
 import { getEmpathyMessage, getScoreTone, getScoreToneLabel } from "../lib/design-system";
@@ -23,7 +23,7 @@ const handleSuggestionAction = (suggestion: ReliefSuggestion) => {
 };
 
 export const ResultsPage = () => {
-  const raw = sessionStorage.getItem("mindcheck.latest-result");
+  const raw = sessionStorage.getItem("pebble.latest-result");
   const result = raw ? JSON.parse(raw) as SessionResult : null;
 
   if (!result) {

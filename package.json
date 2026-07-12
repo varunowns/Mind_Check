@@ -1,5 +1,5 @@
 {
-  "name": "mindcheck-monorepo",
+  "name": "pebble-monorepo",
   "private": true,
   "version": "1.0.0",
   "workspaces": [
@@ -8,16 +8,16 @@
   ],
   "scripts": {
     "dev": "npm-run-all --parallel dev:server dev:client",
-    "dev:client": "npm --workspace @mindcheck/client run dev",
-    "dev:server": "npm --workspace @mindcheck/server run dev",
+    "dev:client": "npm --workspace @pebble/client run dev",
+    "dev:server": "npm --workspace @pebble/server run dev",
     "build": "npm-run-all build:shared build:server build:client",
-    "build:shared": "npm --workspace @mindcheck/shared run build",
-    "build:server": "npm --workspace @mindcheck/server run build",
-    "build:client": "npm --workspace @mindcheck/client run build",
+    "build:shared": "npm --workspace @pebble/shared run build",
+    "build:server": "npm --workspace @pebble/server run build",
+    "build:client": "npm --workspace @pebble/client run build",
     "test": "npm-run-all test:shared test:server test:client",
-    "test:shared": "npm --workspace @mindcheck/shared run test",
-    "test:server": "npm --workspace @mindcheck/server run test",
-    "test:client": "npm --workspace @mindcheck/client run test"
+    "test:shared": "npm --workspace @pebble/shared run test",
+    "test:server": "npm --workspace @pebble/server run test",
+    "test:client": "npm --workspace @pebble/client run test"
   },
   "devDependencies": {
     "npm-run-all": "^4.1.5",

@@ -1,8 +1,8 @@
-# MindCheck Architecture
+# Pebble Architecture
 
 ## System Overview
 
-MindCheck is a **monorepo-based full-stack application** designed with clear separation of concerns:
+Pebble is a **monorepo-based full-stack application** designed with clear separation of concerns:
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
@@ -23,7 +23,7 @@ MindCheck is a **monorepo-based full-stack application** designed with clear sep
 └─────────────────────────────────────────────────────────────────┘
 
          Shared Types, Schemas, Algorithms
-              (@mindcheck/shared package)
+              (@pebble/shared package)
 ```
 
 ## Core Layers

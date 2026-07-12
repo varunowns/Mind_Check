@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import type { JournalEntry } from "@mindcheck/shared";
+import type { JournalEntry } from "@pebble/shared";
 import { EmptyState, StaggerItem, TipCard } from "../components/mindcheck-ui";
 import { api } from "../lib/api";
 import { getGuestJournalRecords } from "../lib/guest";

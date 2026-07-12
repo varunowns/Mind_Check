@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { motion } from "framer-motion";
-import type { Badge } from "@mindcheck/shared";
+import type { Badge } from "@pebble/shared";
 import {
   getScoreDescriptor,
   getScoreTone,

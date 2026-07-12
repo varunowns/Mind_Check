@@ -5,7 +5,7 @@ import {
   type CheckInInput,
   type CheckInMode,
   type CheckInRecord
-} from "@mindcheck/shared";
+} from "@pebble/shared";
 import {
   EmptyState,
   MoodPicker,
@@ -139,12 +139,12 @@ export const CheckInPage = () => {
     try {
       if (user) {
         const response = await api.saveCheckIn(payload);
-        sessionStorage.setItem("mindcheck.latest-result", JSON.stringify(response));
+        sessionStorage.setItem("pebble.latest-result", JSON.stringify(response));
       } else {
         const response = buildGuestResultState(payload);
         storage.saveGuestCheckIn(payload);
         storage.saveGuestJournal({ date: payload.date, prompt: response.prompt, content: "", wordCount: 0, entryType: "daily" });
-        sessionStorage.setItem("mindcheck.latest-result", JSON.stringify(response));
+        sessionStorage.setItem("pebble.latest-result", JSON.stringify(response));
       }
 
       storage.clearDraftCheckIn();

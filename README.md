@@ -1,10 +1,10 @@
-# MindCheck
+# Pebble
 
 A calm, full-stack daily stress tracker and relief companion built with TypeScript, React, Express, and SQLite.
 
 ## Overview
 
-MindCheck helps you understand and manage stress through daily check-ins, personalized relief suggestions, and insightful dashboards. The app recognizes that stress is human and normal—offering small, doable actions to help you feel lighter.
+Pebble helps you understand and manage stress through daily check-ins, personalized relief suggestions, and insightful dashboards. The app recognizes that stress is human and normal—offering small, doable actions to help you feel lighter.
 
 ### Key Features
 
@@ -44,7 +44,7 @@ MindCheck helps you understand and manage stress through daily check-ins, person
 ## Project Structure
 
 ```
-mindcheck-monorepo/
+pebble-monorepo/
 ├── apps/
 │   ├── client/                 # React frontend
 │   │   ├── src/
@@ -321,4 +321,4 @@ For issues, questions, or feedback, open an issue on GitHub or reach out directl
 
 ---
 
-Built with care for people managing stress. MindCheck recognizes that some days are hard, some weeks are heavy, and that's okay. 💙
+Built with care for people managing stress. Pebble recognizes that some days are hard, some weeks are heavy, and that's okay. 💙

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import type { ReliefSuggestion } from "@mindcheck/shared";
+import type { ReliefSuggestion } from "@pebble/shared";
 
 const categoryIcons: Record<string, string> = {
   breathing: "🌬️",

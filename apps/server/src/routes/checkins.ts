@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { checkInSchema, generateJournalPrompt, generateReliefSuggestions } from "@mindcheck/shared";
+import { checkInSchema, generateJournalPrompt, generateReliefSuggestions } from "@pebble/shared";
 import { requireAuth, type AuthenticatedRequest } from "../middleware/auth.js";
 import { checkInRepository, resultRepository, shieldRepository, userRepository } from "../services/repositories.js";
 

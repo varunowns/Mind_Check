@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { pulseSchema } from "@mindcheck/shared";
+import { pulseSchema } from "@pebble/shared";
 import { requireAuth, type AuthenticatedRequest } from "../middleware/auth.js";
 import { pulseRepository } from "../services/repositories.js";
 

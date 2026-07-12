@@ -6,7 +6,7 @@ process.env.JWT_SECRET = "test-secret";
 
 const { app } = await import("./app");
 
-describe("MindCheck API", () => {
+describe("Pebble API", () => {
   let token = "";
 
   beforeEach(async () => {

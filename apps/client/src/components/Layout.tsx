@@ -21,7 +21,7 @@ export const Layout = () => {
     <div className="app-shell">
       <header className="shell-header">
         <div className="shell-header__inner">
-          <Link to="/" className="brand-mark">MindCheck</Link>
+          <Link to="/" className="brand-mark">Pebble</Link>
           <nav className="nav-strip" aria-label="Primary">
             {links.map((link) => (
               <NavLink

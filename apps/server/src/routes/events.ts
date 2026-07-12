@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { eventSchema } from "@mindcheck/shared";
+import { eventSchema } from "@pebble/shared";
 import { requireAuth, type AuthenticatedRequest } from "../middleware/auth.js";
 import { eventRepository } from "../services/repositories.js";
 
