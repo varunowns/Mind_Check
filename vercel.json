@@ -2,11 +2,6 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "buildCommand": "npm run build",
   "outputDirectory": "public",
-  "functions": {
-    "api/index.ts": {
-      "runtime": "node@20.x"
-    }
-  },
   "rewrites": [
     {
       "source": "/api/:path*",
