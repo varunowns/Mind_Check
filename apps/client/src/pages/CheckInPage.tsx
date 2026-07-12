@@ -7,13 +7,13 @@ import {
   type CheckInRecord
 } from "@mindcheck/shared";
 import {
-  CheckinProgressBar,
   EmptyState,
   MoodPicker,
   StaggerItem,
   StressorChips,
   TipCard
 } from "../components/mindcheck-ui";
+import { ProgressIndicator, FormSection } from "../components/FormComponents";
 import { api } from "../lib/api";
 import { buildStoredStressor, splitStoredStressor, stressorOptions } from "../lib/design-system";
 import { buildGuestResultState } from "../lib/guest";
@@ -38,6 +38,28 @@ const baseState = (): CheckInInput => ({
   meetingCount: null,
   submittedAtLocal: toLocalTimestamp()
 });
+
+const getStepTitle = (step: number): string => {
+  const titles = [
+    "How did sleep treat you?",
+    "What mood feels closest?",
+    "How's your energy?",
+    "What's weighing on you?",
+    "Bring this into words"
+  ];
+  return titles[step] || "";
+};
+
+const getStepDescription = (step: number, _mode: CheckInMode, _session: string): string => {
+  const descriptions = [
+    "We'll start with rest, since it changes how every other signal feels.",
+    "There's no perfect label here, just the one that feels nearest.",
+    "Energy often tracks with stress and sleep.",
+    "Name what's on your plate — work, people, deadlines, anything.",
+    "A sentence or two can help you reflect later on what mattered most."
+  ];
+  return descriptions[step] || "";
+};
 
 const draft = storage.getDraftCheckIn();
 const parsedDraft = splitStoredStressor(draft.stressor ?? "");
@@ -203,53 +225,64 @@ export const CheckInPage = () => {
   return (
     <div className="page-stack mx-auto max-w-4xl">
       <StaggerItem className="surface-panel surface-section" delay={0}>
-        <CheckinProgressBar
-          currentStep={step + 1}
-          totalSteps={steps.length}
+        <ProgressIndicator
+          current={step + 1}
+          total={steps.length}
           label={`${steps[step]}${mode === "thrice" ? ` • ${form.session}` : ""}`}
         />
       </StaggerItem>
 
-      <StaggerItem className="surface-card surface-section" delay={150}>
-        {step === 0 ? <SleepStep form={form} setForm={setForm} /> : null}
-        {step === 1 ? <MoodStep form={form} setForm={setForm} /> : null}
-        {step === 2 ? <EnergyStep form={form} setForm={setForm} /> : null}
-        {step === 3 ? (
-          <StressorsStep
-            form={form}
-            setForm={setForm}
-            selectedStressors={selectedStressors}
-            setSelectedStressors={setSelectedStressors}
-          />
-        ) : null}
-        {step === 4 ? (
-          <ReflectionStep
-            reflection={reflection}
-            setReflection={setReflection}
-            sessionLabel={mode === "thrice" ? form.session : "daily"}
-            selectedStressors={selectedStressors}
-          />
-        ) : null}
+      <FormSection
+        title={getStepTitle(step)}
+        description={getStepDescription(step, mode, form.session)}
+      >
+        <StaggerItem delay={150}>
+          {step === 0 ? <SleepStep form={form} setForm={setForm} /> : null}
+          {step === 1 ? <MoodStep form={form} setForm={setForm} /> : null}
+          {step === 2 ? <EnergyStep form={form} setForm={setForm} /> : null}
+          {step === 3 ? (
+            <StressorsStep
+              form={form}
+              setForm={setForm}
+              selectedStressors={selectedStressors}
+              setSelectedStressors={setSelectedStressors}
+            />
+          ) : null}
+          {step === 4 ? (
+            <ReflectionStep
+              reflection={reflection}
+              setReflection={setReflection}
+              sessionLabel={mode === "thrice" ? form.session : "daily"}
+              selectedStressors={selectedStressors}
+            />
+          ) : null}
 
-        {error ? <p className="mt-4 text-sm" style={{ color: "var(--danger)" }}>{error}</p> : null}
+          {error ? (
+            <div className="mt-4 p-3 rounded-lg bg-red-50 dark:bg-red-950/20 border border-red-200 dark:border-red-800">
+              <p className="text-sm" style={{ color: "var(--danger)" }}>
+                ⚠️ {error}
+              </p>
+            </div>
+          ) : null}
 
-        <div className="mt-8 flex flex-wrap items-center justify-between gap-3">
-          <button
-            type="button"
-            onClick={() => {
-              persistDraft();
-              setStep((current) => Math.max(current - 1, 0));
-            }}
-            disabled={step === 0}
-            className="button-secondary"
-          >
-            Back
-          </button>
-          <button type="button" onClick={next} disabled={submitting} className="button-primary">
-            {submitting ? "Saving..." : step === steps.length - 1 ? "Reveal my score" : "Next"}
-          </button>
-        </div>
-      </StaggerItem>
+          <div className="mt-8 flex flex-wrap items-center justify-between gap-3">
+            <button
+              type="button"
+              onClick={() => {
+                persistDraft();
+                setStep((current) => Math.max(current - 1, 0));
+              }}
+              disabled={step === 0}
+              className="button-secondary"
+            >
+              ← Back
+            </button>
+            <button type="button" onClick={next} disabled={submitting} className="button-primary">
+              {submitting ? "Saving..." : step === steps.length - 1 ? "Reveal my score →" : "Next →"}
+            </button>
+          </div>
+        </StaggerItem>
+      </FormSection>
 
       <StaggerItem delay={300}>
         <TipCard title="Saved as you go" copy="We keep a local draft of this check-in in case you step away before finishing." />
